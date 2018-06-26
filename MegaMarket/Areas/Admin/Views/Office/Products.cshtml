@@ -1,0 +1,46 @@
+﻿@{Layout = "~/Areas/Admin/Views/Shared/_BaseNavLayout.cshtml";}
+
+<link href="~/Content/jqx_styles/jqx.base.css" rel="stylesheet" />
+<link href="~/Content/jqx_styles/jqx.bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/jqxcore.js"></script>
+<script src="~/Scripts/jqx-all.js"></script>
+<script src="~/Scripts/products.js"></script>
+
+<div id='jqxWidget' class="col-md-3">
+    <div id='jqxTree' style='visibility: hidden;'>
+    </div>
+</div>
+
+<div class="col-md-3">
+    <a id="btnAdd" class="btn btn-sm btn-primary" style="margin-bottom: 5px; margin-right: 5px; display: none;" onclick="AddProduct()"><i class="fa fa-plus-circle"></i> დამატება</a>
+    <a id="btnDelete" class="btn btn-sm btn-danger" style="margin-bottom: 5px; display: none;" onclick="SaveProductBase(true)"><i class="fa fa-trash"></i> წაშლა</a>
+    <div id="grdProducts">
+    </div>
+</div>
+
+<div class="col-md-6" id="addEditProductForm" style="display: none; margin-bottom: 20px;">
+    <h4 id="addEditProductTitle"></h4>
+    <hr />
+    <input id="productName" class="input-group input-sm form-control" style="max-width: 100% !important;" placeholder="დასახელება" autofocus />
+    <input id="productCode" class="input-group input-sm form-control" style="max-width: 100% !important; margin-top: 10px;" placeholder="კოდი" />
+
+    <div style="margin-top: 10px;" id='jqxCountries'></div>
+    <div style="margin-top: 10px;" id='jqxManufacturers'></div>
+    <div style="margin-top: 10px;" id='jqxBrands'></div>
+
+    <textarea id="productDescription" rows="4" class="form-control" style="margin-top: 10px; resize: vertical;" placeholder="აღწერა">
+    </textarea>
+
+    <label for="uploadImageSmall" style="margin-top: 15px;">პატარა სურათი</label><input type="file" id="uploadImageSmall" accept="image/*" style="margin-bottom: 10px;" />
+    <div id="smlImg"></div>
+
+    <hr />
+
+    <label for="uploadImageSmall">დიდი სურათები</label><input type="file" id="uploadImageLarge" accept="image/*" style="margin-bottom: 10px;" multiple />
+    <div id="lrgImgs"></div>
+
+    <hr style="margin-bottom: 10px;" />
+
+    <a class="btn btn-sm btn-default" style="float: right;" onclick="CancelSaveProduct()"><i class="fa fa-close"></i> გაუქმება</a>
+    <a class="btn btn-sm btn-primary" style="float: right; margin-right: 5px;" onclick="SaveProduct()"><i class="fa fa-save"></i> შენახვა</a>
+</div>

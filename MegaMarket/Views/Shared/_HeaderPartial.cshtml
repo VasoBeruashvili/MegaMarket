@@ -1,0 +1,118 @@
+﻿@using MegaMarket.Code
+@using MegaMarket.ViewModels
+
+<div class="top-navbar">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <ul class="nav nav-pills">
+                    <li><a href="#">მიწოდება</a></li>
+                    <li><a href="#">გადახდის პირობები</a></li>
+                    <li><a href="#">ფასების ჩამონათვალი</a></li>
+                    <li><a href="#">კომპანიის შესახებ</a></li>
+                    <li><a href="#">კონტაქტი</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-5">
+                <div class="user-panel right">
+                    <div class="login-w left">
+                        <a href="@Url.Action("PriceTypes", "Office", new { Area = "Admin" })">
+                            <span class="icon login"> </span>
+                            <span class="textname">შესვლა</span>
+                        </a>
+                    </div>
+                    <div class="register-w left">
+                        <a href="#">
+                            <span class="icon reg"> </span>
+                            <span class="textname">რეგისტრაცია</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="phone-wrap">
+                    <span>@GlobalSettings.ContactPhoneNumber</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container search-bar">
+    <div class="row">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a href="@Url.Action("Index", "Home")" class="navbar-brand">
+                <img src="@Url.Content("~/Content/Resources/Header/logo200X52.png")" class="img-responsive" alt="Logo" />
+            </a>
+        </div>
+
+        <div class="nav-search col-lg-7">
+            <div class="nav-right">
+                <div class="nav-search-submit">
+                    <span class="nav-sprite"></span>
+                    <input type="button" class="search-btn" />
+                </div>
+            </div>
+            <div class="nav-fill">
+                <div class="nav-search-field">
+                    <input type="text" class="search-input" placeholder="Search..." />
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-2 nav-basket">
+            <div class="basket-wraper">             
+                <a href="#" class="basket-btn">
+                    <img src="@Url.Content("~/Content/Resources/Header/basket127X51.png")" alt="IMG" class="img-responsive" />
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="menu-bar">
+    <div class="container">
+        <div class="row">
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar nav-pills">
+                    @for (int i = 0; i < ViewBag.Categories.Count; i++)
+                    {
+                        CategoryModel item = ViewBag.Categories[i];
+
+                        if (i != ViewBag.Categories.Count - 1)
+                        {
+                            <li>
+                                <a href="#">
+                                    <span class="icon"><img src="@Url.Content(String.Format("~/Content/Resources/Category/{0}", item.IconName))" alt="IMG" /></span>
+                                    <span class="textname">@item.Name</span>
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="last">
+                                <a href="#">
+                                    <span class="icon"><img src="@Url.Content(String.Format("~/Content/Resources/Category/{0}", item.IconName))" alt="IMG" /></span>
+                                    <span class="textname">@item.Name</span>
+                                </a>
+                            </li>
+                        }
+                    }
+
+                    <li class="discount last">
+                        <a href="#">
+                            <span class="icon"><img src="@Url.Content("~/Content/Resources/Category/discount30X30.png")" alt="IMG" /></span>
+                            <span class="textname">აქციები</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

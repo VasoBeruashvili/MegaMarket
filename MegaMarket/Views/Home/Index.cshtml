@@ -1,0 +1,168 @@
+﻿@using System.Linq
+@using MegaMarket.ViewModels
+
+@{
+    ViewBag.Title = "MegaMarket";
+}
+@section head{
+    <link type="text/html" rel="stylesheet" href="@Url.Content("~/Content/slider.css")" />
+    <link type="text/html" rel="stylesheet" href="@Url.Content("~/Content/default.css")" />
+}
+@section scripts{
+    <script src="@Url.Content("~/Scripts/jssor.slider.mini.js")"></script>
+    <script src="@Url.Content("~/Scripts/slider.js")"></script>
+}
+<div class="container">
+    <div class="row slider-wrapper">
+        <div id="jssor_1" style="height: 378px; ">
+            <!-- Loading Screen -->
+            <div data-u="loading" class="loading">
+                <div class="load-wrap"></div>
+                <div class="load-img"></div>
+            </div>
+            <div data-u="slides" class="slides">
+                <div data-p="112.50" style="display: none;">
+                    <img data-u="image" src="@Url.Content("~/Content/Resources/Slider/02.jpg")" />
+                </div>
+                <div data-p="112.50" style="display: none;">
+                    <img data-u="image" src="@Url.Content("~/Content/Resources/Slider/04.jpg")" />
+                </div>
+                <div data-p="112.50" style="display: none;">
+                    <img data-u="image" src="@Url.Content("~/Content/Resources/Slider/05.jpg")" />
+                </div>
+                <div data-p="112.50" style="display: none;">
+                    <img data-u="image" src="@Url.Content("~/Content/Resources/Slider/09.jpg")" />
+                </div>
+            </div>
+            <!-- Bullet Navigator -->
+            <div data-u="navigator" class="jssorb05" data-autocenter="1">
+                <!-- bullet navigator item prototype -->
+                <div data-u="prototype" class="bullet"></div>
+            </div>
+            <!-- Arrow Navigator -->
+            <span data-u="arrowleft" class="jssora12l" data-autocenter="2"></span>
+            <span data-u="arrowright" class="jssora12r" data-autocenter="2"></span>
+        </div>
+    </div>
+
+    <div class="row center-bl">
+        <div class="text">
+            <h2>რატომ გვირჩევენ ჩვენ?</h2>
+        </div>
+    </div>
+</div>
+
+<div class="offers-wrapp">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-lg-offset-1">
+                <img src="@Url.Content("~/Content/Resources/Home/img1.png")" class="img-responsive" alt="IMG" />
+                <span>Cven gvendobian</span>
+            </div>
+            <div class="col-lg-2">
+                <img src="@Url.Content("~/Content/Resources/Home/img2.png")" class="img-responsive" alt="IMG" />
+                <span>martivi asarCevad</span>
+            </div>
+            <div class="col-lg-2">
+                <img src="@Url.Content("~/Content/Resources/Home/img3.png")" class="img-responsive" alt="IMG" />
+                <span>drouli miwodeba</span>
+            </div>
+            <div class="col-lg-2">
+                <img src="@Url.Content("~/Content/Resources/Home/img4.png")" class="img-responsive" alt="IMG" />
+                <span>gadaxdis pirobebi</span>
+            </div>
+            <div class="col-lg-2">
+                <img src="@Url.Content("~/Content/Resources/Home/img5.png")" class="img-responsive" alt="IMG" />
+                <span>aqciebi fasdaklebebi</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container sitemap">
+    @for (int i = 0; i < ViewBag.Categories.Count; i += 4)
+    {
+        <div class="row">
+            @foreach (CategoryModel cat in ((List<CategoryModel>)ViewBag.Categories).Skip(i).Take(4))
+            {
+                <div class="col-lg-3 cat">
+                    <h3><a href="#">@cat.Name</a></h3>
+                    <p>
+                        @foreach (CategoryModel subCat in cat.SubCategories)
+                        {
+                            <a href="#">@subCat.Name</a>
+                            <br />
+                        }
+                    </p>
+                </div>
+            }
+        </div>
+    }
+
+    @*
+        <div class="row">
+            <div class="col-lg-3 cat">
+                <h3>საკანცელარიო</h3>
+                <p>
+                    <a href="#">ბაინდერები</a>
+                    <br />
+                    <a href="#">ფორმატები</a>
+                    <br />
+                </p>
+            </div>
+            <div class="col-lg-3 cat">
+                <h3>პარფიუმერია</h3>
+                <p>
+                    <a href="#">ტუჩის საცხები</a>
+                    <br />
+                    <a href="#">სუნამოები</a>
+                    <br />
+                </p>
+            </div>
+            <div class="col-lg-3 cat">
+                <h3>ცხოველთა მოვლა</h3>
+                <p>
+                    <a href="#">ლაქები</a>
+                    <br />
+                    <a href="#">პენლეი</a>
+                    <br />
+                </p>
+            </div>
+            <div class="col-lg-3 cat">
+                <h3>სამშენებლო</h3>
+                <p>
+                    <a href="#">სუნამოები</a>
+                    <br />
+                    <a href="#">პენლეი</a>
+                    <br />
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 cat">
+                <h3>საყოფაცხოვრებო ქიმია</h3>
+                <p>
+                    <a href="#">სუნამოები</a>
+                    <br />
+                    <a href="#">პენლეი</a>
+                    <br />
+                </p>
+            </div>
+            <div class="col-lg-3 cat">
+                <h3>წიგნები</h3>
+                <p>
+                    <a href="#">სუნამოები</a>
+                    <br />
+                    <a href="#">პენლეი</a>
+                    <br />
+                </p>
+            </div>
+            <div class="col-lg-3 cat">
+
+            </div>
+            <div class="col-lg-3 cat">
+
+            </div>
+        </div>
+    *@
+</div>

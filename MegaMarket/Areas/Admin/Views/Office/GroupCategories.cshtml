@@ -1,0 +1,52 @@
+﻿@{Layout = "~/Areas/Admin/Views/Shared/_NavLayout.cshtml";}
+
+<link href="~/Content/jqx_styles/jqx.base.css" rel="stylesheet" />
+<link href="~/Content/jqx_styles/jqx.bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/jqxcore.js"></script>
+<script src="~/Scripts/jqx-all.js"></script>
+<script src="~/Scripts/group-categories.js"></script>
+
+<div id='jqxWidget' class="col-md-4" style="margin-left: -15px;">    
+    <div id='jqxTree' style='visibility: hidden; float: left;'>
+    </div>    
+    <a id="btnUp" class="btn btn-sm btn-default" style="float: left; margin-left: 5px; display: none;" onclick="UpGroupCategory()"><i class="fa fa-arrow-circle-up"></i></a>
+    <br />
+    <br />
+    <a id="btnDown" class="btn btn-sm btn-default" style="float: left; margin-left: 5px; margin-top: -5px; display: none;" onclick="DownGroupCategory()"><i class="fa fa-arrow-circle-down"></i></a>    
+    <div id='jqxMenu' style="display: none;">
+        <ul>            
+            <li id="addGroupCategory"><i class="fa fa-plus-circle"></i> დამატება</li>
+            <li><i class="fa fa-trash"></i> წაშლა</li>
+        </ul>
+    </div>
+</div>
+
+<div class="col-md-5" id="addEditGroupCategory" style="display: none; margin-left: -15px;">
+    <h4 id="addEditGroupCategoryTitle"></h4>
+    <hr />
+    <input id="groupCategoryName" class="input-group input-sm form-control" style="max-width: 100% !important;" placeholder="დასახელება" autofocus />
+
+    <input type="file" id="uploadIcon" accept="image/png" style="margin-top: 10px; margin-bottom: -10px;" />
+
+    <div id="paramsTreeAndGrid" class="row" style="margin-top: 20px; display: none;">
+        <div class="col-md-5">                    
+            <div id="grdParams">
+            </div>            
+        </div>        
+
+        <div class="col-md-2" style="padding-top: 150px; padding-left: 15px;">
+            <a class="btn btn-sm btn-default" onclick="LinkParam()" style="margin-bottom: 10px; margin-left: 15px;"><i class="fa fa-arrow-circle-right"></i></a>
+            <a class="btn btn-sm btn-default" onclick="DeleteGroupParam()" style="margin-left: 15px;"><i class="fa fa-arrow-circle-left"></i></a>
+        </div>
+
+        <div class="col-md-5" style="margin-left: -20px;">
+            <div id="grdGroupParams">
+            </div>
+        </div>
+    </div>
+
+    <hr style="margin-bottom: 10px;" />
+
+    <a class="btn btn-sm btn-default" style="float: right;" onclick="CancelSaveGroupCategory()"><i class="fa fa-close"></i> გაუქმება</a>
+    <a class="btn btn-sm btn-primary" style="float: right; margin-right: 5px;" onclick="SaveGroupCategory(false)"><i class="fa fa-save"></i> შენახვა</a>
+</div>

@@ -1,0 +1,43 @@
+﻿@{Layout = "~/Areas/Admin/Views/Shared/_NavLayout.cshtml";}
+
+<script src="~/Scripts/brands.js"></script>
+
+<div class="col-md-6" style="margin-left: -15px;">
+    @{
+        using (var context = new MMContext())
+        {
+            var brands = context.Brands.ToList();
+
+            <a class="btn btn-sm btn-primary" onclick="AddBrand()" style="margin-bottom: 5px;"><i class="fa fa-plus-circle"></i> დამატება</a>
+
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>დასახელება</th>
+                        <th style="width: 24px;"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var brand in brands)
+                    {
+                        <tr style="cursor: pointer;">
+                            <td onclick="EditBrand(@brand.Id, '@brand.Name')">@brand.Id</td>
+                            <td onclick="EditBrand(@brand.Id, '@brand.Name')">@brand.Name</td>
+                            <td><a class="btn btn-sm btn-danger btn-xs" onclick="DeleteBrand(@brand.Id)"><i class="fa fa-trash"></i></a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    }
+</div>
+
+<div id="addEditBrand" class="col-md-3" style="display: none;">
+    <h4 id="addEditBrandTitle"></h4>
+    <hr />
+    <input id="brandName" class="input-group input-sm form-control" style="max-width: 100% !important;" placeholder="დასახელება" autofocus />
+    <hr style="margin-bottom: 10px;" />
+    <a class="btn btn-sm btn-default" style="float: right;" onclick="CancelSaveBrand()"><i class="fa fa-close"></i> გაუქმება</a>
+    <a class="btn btn-sm btn-primary" style="float: right; margin-right: 5px;" onclick="SaveBrand()"><i class="fa fa-save"></i> შენახვა</a>
+</div>

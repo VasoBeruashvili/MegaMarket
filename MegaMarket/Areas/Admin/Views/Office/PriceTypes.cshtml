@@ -1,0 +1,43 @@
+﻿@{Layout = "~/Areas/Admin/Views/Shared/_NavLayout.cshtml";}
+
+<script src="~/Scripts/price-types.js"></script>
+
+<div class="col-md-6" style="margin-left: -15px;">
+    @{
+        using (var context = new MMContext())
+        {
+            var priceTypes = context.PriceTypes.ToList();
+
+            <a class="btn btn-sm btn-primary" onclick="AddPriceType()" style="margin-bottom: 5px;"><i class="fa fa-plus-circle"></i> დამატება</a>
+
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>დასახელება</th>
+                        <th style="width: 24px;"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var priceType in priceTypes)
+                    {
+                        <tr style="cursor: pointer;">
+                            <td onclick="EditPriceType(@priceType.Id, '@priceType.Name')">@priceType.Id</td>
+                            <td onclick="EditPriceType(@priceType.Id, '@priceType.Name')">@priceType.Name</td>
+                            <td><a class="btn btn-sm btn-danger btn-xs" onclick="DeletePriceType(@priceType.Id)"><i class="fa fa-trash"></i></a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    }
+</div>
+
+<div id="addEditPriceType" class="col-md-3" style="display: none;">
+    <h4 id="addEditPriceTypeTitle"></h4>
+    <hr />
+    <input id="priceTypeName" class="input-group input-sm form-control" style="max-width: 100% !important;" placeholder="დასახელება" autofocus />
+    <hr style="margin-bottom: 10px;" />
+    <a class="btn btn-sm btn-default" style="float: right;" onclick="CancelSavePriceType()"><i class="fa fa-close"></i> გაუქმება</a>
+    <a class="btn btn-sm btn-primary" style="float: right; margin-right: 5px;" onclick="SavePriceType()"><i class="fa fa-save"></i> შენახვა</a>
+</div>

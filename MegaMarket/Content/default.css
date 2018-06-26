@@ -1,0 +1,68 @@
+﻿.center-bl {
+    margin-top: 20px;
+}
+
+    .center-bl .text {
+        font-family: BPGRioniVera;
+        text-align: center;
+    }
+
+.offers-wrapp {
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+    padding: 30px 0;
+    background-color: #444444;
+    background-image: url('Resources/Home/border-bottom.png');
+    background-position: bottom left;
+    background-repeat: repeat-x;
+}
+
+    .offers-wrapp div {
+        text-align: center;
+    }
+
+        .offers-wrapp div span {
+            display: block;
+            font-family: Fido;
+            margin-top: 15px;
+            color: #f6d104;
+            font-size: 15px;
+        }
+
+    .offers-wrapp img {
+        height: 122px;
+        margin: auto;
+    }
+
+.sitemap {
+    margin-top: 20px;
+}
+
+    .sitemap .cat h3 {
+        font-family: BPGRioniArial;
+        font-size: 21px;
+        font-weight: bold;        
+    }
+
+    .sitemap .cat h3 a
+    {
+        color: #444444;
+    }
+
+    .sitemap .cat h3 a:hover, .sitemap .cat h3 a:focus
+    {
+        color: #232323;
+    }
+
+    .sitemap .cat p a {
+        line-height: 24px;
+        font-family: BPGRioni;
+        font-size: 15px;
+        color: #444444;
+        text-decoration: underline;
+    }
+
+    .sitemap .cat p a:hover, .sitemap .cat p a:focus {
+        color: #232323;
+    }

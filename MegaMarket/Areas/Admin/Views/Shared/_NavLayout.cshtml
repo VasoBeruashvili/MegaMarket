@@ -1,0 +1,67 @@
+﻿@{ 
+    string FullName = (Session["Admin"] as User).FullName;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+    <title>Back Office Home</title>
+    <script src="~/Scripts/jquery-2.2.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />    
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <script src="~/Scripts/custom-functions.js"></script>
+</head>
+<body>    
+    <div class="container-fluid" style="padding-left: 5px; padding-right: 5px;">
+        <!--Menu Start-->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="@Url.Action("PriceTypes", "Office", new { Area = "Admin" })"><img src="~/Content/Resources/fina_logo_blue.png" style="margin-top: -10px;" height="40" /></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="@Url.Action("PriceTypes", "Office", new { Area = "Admin" })"><i class="fa fa-database"></i> ცნობარები</a></li>
+                        <li><a href="@Url.Action("Products", "Office", new { Area = "Admin" })"><i class="fa fa-suitcase"></i> სასაქონლო სია</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right" style="margin-right: 1px;">
+                        <li class="active">
+                            <a style="text-decoration: none; cursor: pointer;" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-image"></i> @FullName <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li style="cursor: pointer;"><a href="@Url.Action("Logout", "Auth", new { Area = "Admin" })"><i class="fa fa-sign-out"></i> გასვლა</a></li>
+                            </ul>
+                        </li>
+                    </ul>                    
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <!--Menu End-->
+
+        <div class="col-md-2" style="margin-top: 70px;">
+            <div class="list-group">
+                <a href="@Url.Action("PriceTypes", "Office", new { Area = "Admin" })" class="list-group-item">ფასის სახეობები</a>
+                <a href="@Url.Action("Units", "Office", new { Area = "Admin" })" class="list-group-item">ერთეულები</a>
+                <a href="@Url.Action("ProductParamTypes", "Office", new { Area = "Admin" })" class="list-group-item">პარამეტრები</a>
+                <a href="@Url.Action("GroupCategories", "Office", new { Area = "Admin" })" class="list-group-item">კატეგორიები</a>
+                <a href="@Url.Action("Vendors", "Office", new { Area = "Admin" })" class="list-group-item">მომწოდებლები</a>
+                <a href="@Url.Action("Manufacturers", "Office", new { Area = "Admin" })" class="list-group-item">მწარმოებლები</a>
+                <a href="@Url.Action("Brands", "Office", new { Area = "Admin" })" class="list-group-item">ბრენდები</a>
+            </div>
+        </div>
+        <div class="col-md-10" style="margin-top: 70px;">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>

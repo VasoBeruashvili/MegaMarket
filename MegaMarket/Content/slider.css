@@ -1,0 +1,149 @@
+﻿/* jssor slider bullet navigator skin 05 css */
+/*
+        .jssorb05 div           (normal)
+        .jssorb05 div:hover     (normal mouseover)
+        .jssorb05 .av           (active)
+        .jssorb05 .av:hover     (active mouseover)
+        .jssorb05 .dn           (mousedown)
+        */
+.jssorb05 {
+    position: absolute;
+}
+
+    .jssorb05 div, .jssorb05 div:hover, .jssorb05 .bulletav av {
+        position: absolute;
+        /* size of bullet elment */
+        width: 16px;
+        height: 16px;
+        background: url('Resources/Slider/radio.png') no-repeat;
+        /*overflow: hidden;*/
+        cursor: pointer;
+    }
+
+        /*.jssorb05 div { background: url('Content/Resources/Slider/radiof.png') no-repeat; }*/
+        .jssorb05 div:hover, .jssorb05 .bulletav av:hover {
+            background: url('Resources/Slider/radiof.png') no-repeat;
+        }
+
+    .jssorb05 .bulletav {
+        background: url('Resources/Slider/radiof.png') no-repeat;
+    }
+
+    .jssorb05 .dn, .jssorb05 .dn:hover {
+        background: url('Resources/Slider/radiof.png') no-repeat;
+    }
+
+/* jssor slider arrow navigator skin 12 css */
+/*
+        .jssora12l                  (normal)
+        .jssora12r                  (normal)
+        .jssora12l:hover            (normal mouseover)
+        .jssora12r:hover            (normal mouseover)
+        .jssora12l.jssora12ldn      (mousedown)
+        .jssora12r.jssora12rdn      (mousedown)
+        */
+.jssora12l, .jssora12r {
+    display: block;
+    position: absolute;
+    /* size of arrow element */
+    width: 30px;
+    height: 46px;
+    cursor: pointer;
+    /* overflow: hidden;*/
+}
+
+
+
+.jssora12l {
+    background-position: -16px -37px;
+    background: url('Resources/Slider/arrow-left.png') no-repeat;
+}
+
+.jssora12r {
+    background-position: -75px -37px;
+    background: url('Resources/Slider/arrow-right.png') no-repeat;
+}
+/*.jssora12l:hover { background-position: -136px -37px; }
+        .jssora12r:hover { background-position: -195px -37px; }
+.jssora12l.jssora12ldn {
+    background-position: -256px -37px;
+}
+
+.jssora12r.jssora12rdn {
+    background-position: -315px -37px;
+}
+    */
+
+.slider-wrapper {
+    margin-top: 30px;
+}
+
+    .slider-wrapper #jssor_1 {
+        position: relative;
+        margin: 0 auto;
+        top: 0px;
+        left: 0px;
+        width: 1170px;
+        height: 378px;
+        visibility: hidden;
+    }
+
+    .slider-wrapper .loading {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+
+    .slider-wrapper .load-wrap {
+        filter: alpha(opacity=70);
+        opacity: 0.7;
+        position: absolute;
+        display: block;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .slider-wrapper .load-img {
+        position: absolute;
+        display: block;
+        background: url('Resources/Slider/loading.gif') no-repeat center center;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .slider-wrapper .slides {
+        cursor: default;
+        position: relative;
+        top: 0px;
+        left: 0px;
+        width: 1170px;
+        height: 378px;
+    }
+
+    .slider-wrapper .jssorb05 {
+        bottom: 16px;
+        right: 16px;
+    }
+
+    .slider-wrapper .bullet {
+        width: 16px;
+        height: 16px;
+    }
+
+    .slider-wrapper .jssora12l {
+        top: 0px;
+        left: -31px;
+        width: 57px;
+        height: 78px;
+    }
+
+    .slider-wrapper .jssora12r {
+        top: 0px;
+        right: -31px;
+        width: 57px;
+        height: 78px;
+    }
